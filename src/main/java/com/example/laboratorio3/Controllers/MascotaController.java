@@ -52,7 +52,7 @@ public class MascotaController {
     public String editarMascota(Model model, @ModelAttribute("mascota")Mascota mascota,@RequestParam("id") Integer id){
         Optional<Mascota> optional= mascotaRepository.findById(id);
         if (optional.isPresent()){
-
+            model.addAttribute("mascota",optional.get());
             model.addAttribute("listaCuentas",cuentaRepository.findAll());
             model.addAttribute("listaRazas",razaRepository.findAll());
             return "Mascota/new";
