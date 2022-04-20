@@ -11,8 +11,7 @@
         <div class="container">
             <div class="row mb-4">
                 <div class="col-md-6 offset-md-3">
-                    <h2 >Registrar Mascota</h2>
-                    <hr/>
+                    <h2 th:text="${titulo}" >Registrar Mascota</h2>
                     <form th:action="@{'/mascota/save'}" method="post" th:object="${mascota}">
                         <input th:field="*{idmascota}" type="hidden"/>
                         <div class="mb-3">
@@ -34,8 +33,8 @@
                         <div class="mb-3">
                             <label class="form-label">Sexo</label>
                             <select class="form-select" th:name="sexo" id="sexo">
-                                <option th:value="Macho" th:text="Macho"></option>
-                                <option th:value="Hembra" th:text="Hembra"></option>
+                                <option th:value="Masculino" th:text="Macho"></option>
+                                <option th:value="Femenino" th:text="Hembra"></option>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -57,7 +56,7 @@
 
 
                         <a th:href="@{'/mascota'}" class="btn btn-danger">Cancelar</a>
-                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                        <button type="submit" class="btn btn-primary" th:text="${titulo=='Editar mascota'} ? 'Actualizar' : 'Registrar'">Actualizar</button>
                     </form>
                 </div>
             </div>
