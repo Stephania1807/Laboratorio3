@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Lista de Servicios</title>
+</head>
+<body>
+<div class="container">
+    <h1>Lista de Servicios</h1>
+    <a class="btn btn-primary mt-4 mb-4" th:href="@{/servicio/new}">Nuevo Servicio</a>
+    <div th:if="${msg1!=null}" class="alert alert-success" th:text="${msg1}"></div>
+    <div th:if="${msg2!=null}" class="alert alert-warning" th:text="${msg2}"></div>
+    <div th:if="${msg3!=null}" class="alert alert-danger" th:text="${msg3}"></div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Hora Inicio</th>
+            <th>Duracion</th>
+            <th>Entrega</th>
+            <th>Nombre Responsable</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="servicio, info : ${listaServicios}">
+            <td th:text="${info.index + 1}"></td>
+            <td th:text="${servicio.mascotaIdmascota.nombre}"></td>
+            <td th:text="${servicio.cuentaIdcuenta.correo}"></td>
+            <td th:text="${servicio.horaInicio}"></td>
+            <td th:text="${servicio.duracion}"></td>
+            <td th:text="${servicio.entrega}"></td>
+            <td th:text="${servicio.responsableIdresponsable.nombre}"></td>
+            <td><a class="btn btn-primary" th:href="@{'/servicios/editar' + '?id=' + ${servicio.id}}">Editar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

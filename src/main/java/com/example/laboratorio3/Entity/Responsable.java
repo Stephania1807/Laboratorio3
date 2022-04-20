@@ -11,8 +11,8 @@ public class Responsable {
     @Column(name = "idresponsable")
     private int idresponsable;
 
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Column(name = "nombre")
+    private String nombre;
 
     public int getIdresponsable() {
         return idresponsable;
@@ -22,11 +22,11 @@ public class Responsable {
         this.idresponsable = idresponsable;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }
