@@ -8,10 +8,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 </head>
 <body class="container">
-<h1>TeleVet</h1>
-<a th:href="@{/lista}">Lista de Mascota</a><br />
-<a th:href="@{/contacto}">Contacto y/o Dueño</a><br />
-<a th:href="@{/servicio}">Servicio</a><br />
-<a th:href="@{/nuevo}">Nuevo Responsable</a>
+<h1>Veterniaria TeleVet</h1>
+    <div class="container">
+        <img style="height: 100%; width: 100%; object-fit: contain" th:src="@{/images/mascotas.jpg}" alt="">
+    </div>
+
+<a class="btn btn-primary" th:href="@{/lista}">Lista de Mascota</a><br />
+<a class="btn btn-primary" th:href="@{/contacto}">Contacto y/o Dueño</a><br />
+<a class="btn btn-primary" th:href="@{/servicio}">Servicio</a><br />
+<a class="btn btn-primary" th:href="@{/nuevo}">Nuevo Responsable</a>
 </body>
 </html>
