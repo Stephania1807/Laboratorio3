@@ -21,7 +21,7 @@ public class MascotaController {
     @Autowired
     ServicioRepository servicioRepository;
     @GetMapping(value = {"","/"})
-    public String listaEmployee(Model model){
+    public String listaMascota(Model model){
         model.addAttribute("listaMascota", mascotaRepository.findAll());
         model.addAttribute("listaRaza", razaRepository.findAll());
         model.addAttribute("listaServicio", servicioRepository.findAll());
