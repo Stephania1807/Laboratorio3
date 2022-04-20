@@ -1,4 +1,8 @@
 package com.example.laboratorio3.Repository;
 
-public interface MascotaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface MascotaRepository extends JpaRepository<Mascota, Integer> {
 }
