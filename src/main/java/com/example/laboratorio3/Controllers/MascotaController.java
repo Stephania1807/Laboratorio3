@@ -52,7 +52,6 @@ public class MascotaController {
 
 
 
-    public String nuevaMascota(Model model){
     @GetMapping(value = "/new")
     public String nuevaMascota(Model model, @ModelAttribute("mascota")Mascota mascota){
         model.addAttribute("listaCuentas",cuentaRepository.findAll());
