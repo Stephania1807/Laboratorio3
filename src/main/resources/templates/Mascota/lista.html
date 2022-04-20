@@ -42,7 +42,7 @@
             <td><a class = "btn btn-primary" th:href="@{'/mascota/detalle' + '?idmascota=' + ${mascota.idmascota}}">Ver más</a></td>
             <td><a class="btn btn-primary" th:href="@{'/mascota/edit' + '?idmascota=' + ${mascota.idmascota}}">Editar</a>
             </td>
-            <td><a class="btn btn-danger" th:href="@{'/mascota/borrar?id=' + ${mascota.idmascota}}">Borrar</a>
+            <td><a class="btn btn-danger" th:href="@{'/mascota/borrar?idmascota=' + ${mascota.idmascota}}">Borrar</a>
             </td>
         </tr>
         </tbody>

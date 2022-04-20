@@ -15,23 +15,26 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>ID Servicio</th>
-            <th>Mascota</th>
-            <th>Correo</th>
+            <th>Nombre Mascota</th>
+            <th>Año Nacimiento</th>
             <th>Hora Inicio</th>
             <th>Duracion (minutos)</th>
             <th>Entrega</th>
+            <th>Responsable</th>
+            <th>Servicio</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="servicio, info : ${listaServicios}">
             <td th:text="${info.index + 1}"></td>
-            <td th:text="${servicio.id}"></td>
             <td th:text="${servicio.mascotaIdmascota.getNombre()}"></td>
-            <td th:text="${servicio.cuentaIdcuenta.getCorreo}"></td>
+            <td th:text="${servicio.mascotaIdmascota.getAnho()}"></td>
             <td th:text="${servicio.horaInicio}"></td>
             <td th:text="${servicio.duracion}"></td>
             <td th:text="${servicio.entrega}"></td>
+            <td th:text="${servicio.responsableIdresponsable.getNombre()}"></td>
+            <td th:text="${servicio.getOpcionServicio().get(0).getIdopcion().getDescripcion()}"></td>
+
         </tr>
         </tbody>
     </table>

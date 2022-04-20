@@ -4,6 +4,26 @@ package com.example.laboratorio3.Entity;
 import javax.persistence.*;
 import java.time.Instant;
 
+    public Responsable getResponsableIdresponsable() {
+        return responsableIdresponsable;
+    }
+
+    public void setResponsableIdresponsable(Responsable responsableIdresponsable) {
+        this.responsableIdresponsable = responsableIdresponsable;
+    }
+
+    public List<OpcionServicio> getOpcionServicio() {
+        return opcionServicio;
+    }
+
+    public void setOpcionServicio(List<OpcionServicio> opcionServicio) {
+        this.opcionServicio = opcionServicio;
+    }
+
+    @OneToMany(mappedBy = "idservicio")
+    List<OpcionServicio>opcionServicio;
+
+
 
 @Entity
 @Table(name = "servicio")

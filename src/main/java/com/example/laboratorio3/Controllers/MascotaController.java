@@ -64,6 +64,7 @@ public class MascotaController {
         Optional<Mascota> mascotaOptional = mascotaRepository.findById(idmascota);
         if (mascotaOptional.isPresent()) {
             Mascota mascota = mascotaOptional.get();
+            mascotaRepository.delete(mascota);
         }
         return "redirect:/mascota";
 
