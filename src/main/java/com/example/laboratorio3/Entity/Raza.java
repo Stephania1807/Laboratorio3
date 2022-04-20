@@ -8,19 +8,11 @@ public class Raza {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    @Column(name = "idmascota")
-    private int idmascota;
+    @Column(name = "idraza")
+    private int idraza;
 
     @Column(name = "descripcion")
     private String descripcion;
-
-    public int getIdmascota() {
-        return idmascota;
-    }
-
-    public void setIdmascota(int idmascota) {
-        this.idmascota = idmascota;
-    }
 
     public String getDescripcion() {
         return descripcion;
@@ -28,5 +20,13 @@ public class Raza {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public int getIdraza() {
+        return idraza;
+    }
+
+    public void setIdraza(int idraza) {
+        this.idraza = idraza;
     }
 }

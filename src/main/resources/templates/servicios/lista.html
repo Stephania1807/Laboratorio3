@@ -9,7 +9,7 @@
     <title>Lista de Servicios</title>
 </head>
 <body>
-<div class="container">
+<div class="container px-4 py-5">
     <h1>Lista de Servicios</h1>
     <a class="btn btn-primary mt-4 mb-4" th:href="@{/servicio/new}">Nuevo Servicio</a>
     <div th:if="${msg1!=null}" class="alert alert-success" th:text="${msg1}"></div>
@@ -20,7 +20,7 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>Nombre</th>
+            <th>Nombre Mascota</th>
             <th>Correo</th>
             <th>Hora Inicio</th>
             <th>Duracion</th>
