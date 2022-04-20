@@ -6,6 +6,7 @@ import com.example.laboratorio3.Entity.Responsable;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.List;
 
 @Entity
 @Table(name = "servicio")
@@ -38,13 +39,7 @@ public class Servicio {
     @JoinColumn(name = "responsable_idresponsable", nullable = false)
     private Responsable responsableIdresponsable;
 
-    public Responsable getResponsableIdresponsable() {
-        return responsableIdresponsable;
-    }
 
-    public void setResponsableIdresponsable(Responsable responsableIdresponsable) {
-        this.responsableIdresponsable = responsableIdresponsable;
-    }
 
     public String getEntrega() {
         return entrega;
