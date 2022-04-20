@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Mascota {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Column(name = "idmascota")
     private int idmascota;
 
@@ -21,6 +21,9 @@ public class Mascota {
     private String historia;
 
     @Column(name = "observaciones")
+    private String observaciones;
+
+    @Column(name = "sexo")
     private String sexo;
 
     @ManyToOne
@@ -96,5 +99,13 @@ public class Mascota {
 
     public void setIdcuenta(Cuenta idcuenta) {
         this.idcuenta = idcuenta;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
 }
