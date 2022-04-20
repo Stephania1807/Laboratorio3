@@ -29,8 +29,6 @@ public class ServicioController {
     @Autowired
     ResponsableRepository responsableRepository;
 
-    @Autowired
-    OpcionServicioRepository opcionServicioRepository;
 
     @GetMapping(value = {"","/"})
     public String listaServicios(Model model){
@@ -38,7 +36,6 @@ public class ServicioController {
         model.addAttribute("listaMascotas", mascotaRepository.findAll());
         model.addAttribute("listaCuentas", cuentaRepository.findAll());
         model.addAttribute("listaResponsables", responsableRepository.findAll());
-        model.addAttribute("listaOpcionesServicios", opcionServicioRepository.findAll());
 
         return "servicios/lista";
     }
@@ -70,5 +67,6 @@ public class ServicioController {
 
         return "redirect:/servicios";
     }
+
 
 }

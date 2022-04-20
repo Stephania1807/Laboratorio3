@@ -1,12 +1,9 @@
 package com.example.laboratorio3.Entity;
 
-import com.example.laboratorio3.Entity.Cuenta;
-import com.example.laboratorio3.Entity.Mascota;
-import com.example.laboratorio3.Entity.Responsable;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.util.List;
+
 
 @Entity
 @Table(name = "servicio")
@@ -39,38 +36,12 @@ public class Servicio {
     @JoinColumn(name = "responsable_idresponsable", nullable = false)
     private Responsable responsableIdresponsable;
 
-
-
-    public String getEntrega() {
-        return entrega;
+    public Integer getId() {
+        return id;
     }
 
-    public void setEntrega(String entrega) {
-        this.entrega = entrega;
-    }
-
-    public Integer getDuracion() {
-        return duracion;
-    }
-
-    public void setDuracion(Integer duracion) {
-        this.duracion = duracion;
-    }
-
-    public Instant getHoraInicio() {
-        return horaInicio;
-    }
-
-    public void setHoraInicio(Instant horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
-    public Cuenta getCuentaIdcuenta() {
-        return cuentaIdcuenta;
-    }
-
-    public void setCuentaIdcuenta(Cuenta cuentaIdcuenta) {
-        this.cuentaIdcuenta = cuentaIdcuenta;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Mascota getMascotaIdmascota() {
@@ -81,11 +52,43 @@ public class Servicio {
         this.mascotaIdmascota = mascotaIdmascota;
     }
 
-    public Integer getId() {
-        return id;
+    public Cuenta getCuentaIdcuenta() {
+        return cuentaIdcuenta;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCuentaIdcuenta(Cuenta cuentaIdcuenta) {
+        this.cuentaIdcuenta = cuentaIdcuenta;
+    }
+
+    public Instant getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(Instant horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public Integer getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(Integer duracion) {
+        this.duracion = duracion;
+    }
+
+    public String getEntrega() {
+        return entrega;
+    }
+
+    public void setEntrega(String entrega) {
+        this.entrega = entrega;
+    }
+
+    public Responsable getResponsableIdresponsable() {
+        return responsableIdresponsable;
+    }
+
+    public void setResponsableIdresponsable(Responsable responsableIdresponsable) {
+        this.responsableIdresponsable = responsableIdresponsable;
     }
 }

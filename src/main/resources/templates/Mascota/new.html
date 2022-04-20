@@ -53,8 +53,6 @@
                             <label class="form-label">Otra raza</label>
                             <input type="text" class="form-control" th:field="*{razaotros}" />
                         </div>
-
-
                         <a th:href="@{'/mascota'}" class="btn btn-danger">Cancelar</a>
                         <button type="submit" class="btn btn-primary" th:text="${titulo=='Editar mascota'} ? 'Actualizar' : 'Registrar'">Actualizar</button>
                     </form>

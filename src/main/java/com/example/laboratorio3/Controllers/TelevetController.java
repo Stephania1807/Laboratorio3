@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("")
-public class Televet {
+public class TelevetController {
     @GetMapping(value = {"","/"})
     public String mainPage(){
         return "index";

@@ -11,7 +11,7 @@
 <body>
 <div class="container px-4 py-5">
     <h1>Lista de Servicios</h1>
-    <a class="btn btn-primary mt-4 mb-4" th:href="@{/servicio/new}">Nuevo Servicio</a>
+    <a class="btn btn-primary mt-4 mb-4" th:href="@{/servicios/new}">Nuevo Servicio</a>
     <div th:if="${msg1!=null}" class="alert alert-success" th:text="${msg1}"></div>
     <div th:if="${msg2!=null}" class="alert alert-warning" th:text="${msg2}"></div>
     <div th:if="${msg3!=null}" class="alert alert-danger" th:text="${msg3}"></div>
@@ -32,7 +32,7 @@
         <tbody>
         <tr th:each="servicio, info : ${listaServicios}">
             <td th:text="${info.index + 1}"></td>
-            <td th:text="${servicio.mascotaIdmascota.nombre}"></td>
+            <td th:text="${servicio.mascotaIdmascota.getNombre()}"></td>
             <td th:text="${servicio.cuentaIdcuenta.correo}"></td>
             <td th:text="${servicio.horaInicio}"></td>
             <td th:text="${servicio.duracion}"></td>
