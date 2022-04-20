@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ServicioRepository extends JpaRepository<Servicio, Integer> {
+public interface ServicioRepository extends JpaRepository<Servicio,Integer> {
 
     @Query(value="SELECT  COUNT(idservicio) FROM servicio INNER JOIN mascota on mascota_idmascota=idmascota GROUP BY mascota_idmascota;\n",nativeQuery = true)
     List<Mascota> listaMascotitas();

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6 offset-md-3">
+                    <h2 >Registrar Mascota</h2>
+                    <hr/>
+                    <form th:action="@{'/mascota/save'}" method="post" th:object="${mascota}">
+                        <input th:field="*{idmascota}" type="hidden"/>
+                        <div class="mb-3">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control" th:field="*{nombre}" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Año</label>
+                            <input type="text" class="form-control" th:field="*{anho}" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Historia</label>
+                            <input type="text" class="form-control" th:field="*{historia}" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Observaciones</label>
+                            <input type="text" class="form-control" th:field="*{observaciones}" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Sexo</label>
+                            <select class="form-select" th:name="sexo" id="sexo">
+                                <option th:value="Macho" th:text="Macho"></option>
+                                <option th:value="Hembra" th:text="Hembra"></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Dueño</label>
+                            <select class="form-select" th:name="idcuenta" id="idcuenta">
+                                <option th:each="cuenta : ${listaCuentas}" th:text="${cuenta.correo}" th:value="${cuenta.idcuenta}"></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Raza</label>
+                            <select class="form-select" th:name="raza" id="raza">
+                                <option th:each="raza : ${listaRazas}" th:text="${raza.descripcion}" th:value="${raza.idraza}"></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Otra raza</label>
+                            <input type="text" class="form-control" th:field="*{razaotros}" />
+                        </div>
+
+
+                        <a th:href="@{'/mascota'}" class="btn btn-danger">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    </body>
+</html>

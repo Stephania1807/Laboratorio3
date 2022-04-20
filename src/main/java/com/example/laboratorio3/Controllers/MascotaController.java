@@ -1,6 +1,8 @@
 package com.example.laboratorio3.Controllers;
 
 import com.example.laboratorio3.Entity.Mascota;
+import com.example.laboratorio3.Entity.Mascota;
+import com.example.laboratorio3.Repository.CuentaRepository;
 import com.example.laboratorio3.Repository.MascotaRepository;
 import com.example.laboratorio3.Repository.RazaRepository;
 import com.example.laboratorio3.Repository.ServicioRepository;
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.Optional;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -25,6 +30,10 @@ public class MascotaController {
 
     @Autowired
     ServicioRepository servicioRepository;
+
+    @Autowired
+    CuentaRepository cuentaRepository;
+
     @GetMapping(value = {"","/"})
     public String listaMascota(Model model){
         model.addAttribute("listaMascota", mascotaRepository.findAll());
@@ -44,6 +53,10 @@ public class MascotaController {
 
 
     public String nuevaMascota(Model model){
+    @GetMapping(value = "/new")
+    public String nuevaMascota(Model model, @ModelAttribute("mascota")Mascota mascota){
+        model.addAttribute("listaCuentas",cuentaRepository.findAll());
+        model.addAttribute("listaRazas",razaRepository.findAll());
         return "Mascota/new";
     }
 
@@ -56,5 +69,25 @@ public class MascotaController {
         return "redirect:/mascota";
 
     }
+
+    @PostMapping(value = "save")
+    public  String saveMascota(Mascota mascota){
+        mascotaRepository.save(mascota);
+        return "redirect:/mascota";
+    }
+
+    @GetMapping(value = "/edit")
+    public String editarMascota(Model model, @ModelAttribute("mascota")Mascota mascota,@RequestParam("id") Integer id){
+        Optional<Mascota> optional= mascotaRepository.findById(id);
+        if (optional.isPresent()){
+            model.addAttribute("mascota",optional.get());
+            model.addAttribute("listaCuentas",cuentaRepository.findAll());
+            model.addAttribute("listaRazas",razaRepository.findAll());
+            return "Mascota/new";
+        }
+
+        return "redirect:/mascota";
+    }
+
 
 }
