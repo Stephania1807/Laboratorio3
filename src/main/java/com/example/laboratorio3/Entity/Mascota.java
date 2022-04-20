@@ -41,13 +41,6 @@ public class Mascota {
     @OneToMany(mappedBy = "mascotaIdmascota")
     private List<Servicio> listaServicios;
 
-    public List<Servicio> getListaServicios() {
-        return listaServicios;
-    }
-
-    public void setListaServicios(List<Servicio> listaServicios) {
-        this.listaServicios = listaServicios;
-    }
 
     public int getIdmascota() {
         return idmascota;
@@ -119,5 +112,13 @@ public class Mascota {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    public List<Servicio> getListaServicios() {
+        return listaServicios;
+    }
+
+    public void setListaServicios(List<Servicio> listaServicios) {
+        this.listaServicios = listaServicios;
     }
 }

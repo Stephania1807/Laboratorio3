@@ -38,7 +38,6 @@ public class MascotaController {
     public String listaMascota(Model model){
         model.addAttribute("listaMascota", mascotaRepository.findAll());
         model.addAttribute("listaRaza", razaRepository.findAll());
-        model.addAttribute("listaServicio", servicioRepository.findAll());
         return "Mascota/lista";
     }
 
@@ -54,6 +53,7 @@ public class MascotaController {
 
     @GetMapping(value = "/new")
     public String nuevaMascota(Model model, @ModelAttribute("mascota")Mascota mascota){
+        model.addAttribute("titulo","Registrar mascota");
         model.addAttribute("listaCuentas",cuentaRepository.findAll());
         model.addAttribute("listaRazas",razaRepository.findAll());
         return "Mascota/new";
@@ -76,9 +76,10 @@ public class MascotaController {
     }
 
     @GetMapping(value = "/edit")
-    public String editarMascota(Model model, @ModelAttribute("mascota")Mascota mascota,@RequestParam("id") Integer id){
+    public String editarMascota(Model model, @ModelAttribute("mascota")Mascota mascota,@RequestParam("idmascota") Integer id){
         Optional<Mascota> optional= mascotaRepository.findById(id);
         if (optional.isPresent()){
+            model.addAttribute("titulo","Editar mascota");
             model.addAttribute("mascota",optional.get());
             model.addAttribute("listaCuentas",cuentaRepository.findAll());
             model.addAttribute("listaRazas",razaRepository.findAll());
